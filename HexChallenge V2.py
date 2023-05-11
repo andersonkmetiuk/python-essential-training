@@ -11,7 +11,7 @@ def HexToDec(hexNum):
     for char in hexNum:
         if char not in hexNumbers:
             return None
-        
+
     resultDec=0
     i=len(hexNum)
     i-=1
