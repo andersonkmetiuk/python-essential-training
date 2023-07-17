@@ -1,6 +1,7 @@
 print('Classes and Objects')
 
 class Dog:
+    #This is the constructor of the class
     def __init__(self,name):
         self.name = name
         self.legs = 4
@@ -19,7 +20,7 @@ class AnotherDog:
         return self._legs
 
     def speak(self):
-        print(self.name + 'says: Bark!')
+        print(self.name + ' says: Bark!')
 
 #Static and Instance Methods
 class WordSet:
@@ -34,6 +35,26 @@ class WordSet:
     def cleanText(self, text):
         text = text.replace('!','').replace('.','!').replace('\'','')
         return text.lower()
+
+#Inheritance
+class Chihuahua(Dog):
+    #Note that any attribute or method defined in the child`s class overwrites the parent`s class
+    def speak(self):
+        print(f'{self.name} says: Yap yap yap!')
+
+    #You can also create a method unique to this class
+    def wagTail(self):
+        print('Vigorous wagging!')
+
+#When can also modify some built in classes like list()
+class UniqueList(list):
+    def __init__(self):
+        super().__init__()
+        self.someProperty = 'Unique List!'
+    
+    def append(self, item):
+        if item in self:
+            return super().append(item) #calls the parent`s class
 
 #Examples
 print('\nClass => Dog')
@@ -58,3 +79,17 @@ myWordSet.addText('Hi! I\'m trying to add sentences here!')
 myWordSet.addText('Here is another line.')
 print(myWordSet.words)
 
+print('\nInheritance')
+print('\nyou can change the childs method')
+roxy = Chihuahua('Roxy')
+roxy.speak()
+myDog.speak()
+roxy.wagTail()
+
+myList= list()
+secondList = UniqueList()
+secondList.append(1)
+secondList.append(1)
+secondList.append(2)
+print(secondList)
+print(secondList.someProperty)
