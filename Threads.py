@@ -42,3 +42,6 @@ myThreads2 = [threading.Thread(target=longSquare2, args=(n, results3)) for n in 
 #In this example we have created 10 threads
 print(f'results3 = {results3}')
 
+#Threads use round robin
+#Processes run in parallel
+
