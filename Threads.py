@@ -9,7 +9,7 @@ def longSquare2(num,results):
     time.sleep(1)
     results[num] = num**2
 
-print('Threads and Processes')
+print('Threads')
 a=[longSquare(n) for n in range(0,5)]
 print(f'a = {a}')
 
